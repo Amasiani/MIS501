@@ -78,10 +78,10 @@ if value == 1:
                         if select_value == 1:
                             print("Reset you Password from Menu.")
                             print(users_copy) #Registered users deep copy
-                            mobile_number = input("Please enter your username (Mobile number):  ")
+                            mobile_number = input("Please enter your username (Mobile number) e.g. 012345678901:  ")
                             if mobile_number != user[1]:
                                 print("Entered mobile number does not exit!!!")
-                                mobile_number = eval(input("Enter your mobile number: "))
+                                mobile_number = eval(input("Enter your mobile number in correct format e.g 011111111111: "))
                             old_password = input("Enter your password: ")
                             if old_password != user[2]:
                                 print(user[2])
@@ -125,6 +125,6 @@ if value == 1:
     else:
         print("You have logged out of the application, thanks")
 elif value ==2:
-    print("Exit the application and select 2 to signup")
+    print("Exit the application and select 2 to Signup")
 else:
     print("You have logged out of the application")
