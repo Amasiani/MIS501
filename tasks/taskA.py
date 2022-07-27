@@ -27,7 +27,7 @@ if value == 1:
         valid_mobile_number = re.compile(r"(?:\d)?\d{11}")
         while valid_mobile_number.search(mobile_number) is None:
             mobile_number = eval(input("Try again, Enter your mobile number in the correct format e.g 01111111111: "))
-        password = input("Enter password: ")
+        password = input("Enter password in the format xyz@123: ")
         valid_password = re.compile(r"([A-Za-z0-9]+[.@#\$])*[0-9]") #Reference from Python3.10 Doc Chapter 6(6.2.5). Regular expression (Compile user input with re module()).
         while valid_password.search(password) is None:
             password = eval(input("Try again, Enter password in the correct format e.g. axy@234: "))
@@ -62,7 +62,7 @@ if value == 1:
         while count <=3 and not success: #initializing Login attempt counter
             #print(login_data) #Login users deep copy
             mobile_number = input("Enter your mobile number e.g. 09876543210: ")
-            password = input("Enter your password: ")
+            password = input("Enter your password e.g xyz@123: ")
             #login.append([mobile_number, password]) #login user details
             print(users_copy)
             for user in users: #Looping through users(list)
@@ -78,10 +78,10 @@ if value == 1:
                         if select_value == 1:
                             print("Reset you Password from Menu.")
                             print(users_copy) #Registered users deep copy
-                            mobile_number = input("Please enter your username (Mobile number) e.g. 012345678901:  ")
+                            mobile_number = input("Please enter your username (Mobile number) e.g. 01234567890:  ")
                             if mobile_number != user[1]:
                                 print("Entered mobile number does not exit!!!")
-                                mobile_number = eval(input("Enter your mobile number in correct format e.g 011111111111: "))
+                                mobile_number = eval(input("Enter your mobile number in correct format e.g 01234567890: "))
                             old_password = input("Enter your password: ")
                             if old_password != user[2]:
                                 print(user[2])
