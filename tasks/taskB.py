@@ -14,10 +14,10 @@ login_users = []
 login_data = []
 reset_data = []
 count = 1
-mobile_number = None
-password = None
-password_confirm = None
-DOB = None
+mobile_number = ""
+password = ""
+password_confirm = ""
+DOB = ""
 success = False
  
 print("Please log in.")
