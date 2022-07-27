@@ -1,9 +1,7 @@
 import re
 import datetime
 
-print("""1. Enter 1 to sign up
-2. Enter 2 to log in
-3. Enter 3 to log out""")
+print(" 1. Enter 1 to sign up.\n 2. Enter 2 to log in. \n 3. Enter 3 to log out")
 
 value = int(input("Choice from available option: "))
 
@@ -45,7 +43,7 @@ if value == 1:
         date_str = year_BOD.strftime('%m/%d/%y') # formating datetime object to string format.
         age = datetime.datetime.today().year - year_BOD.year #Extacting year from datetime object and calculating the age from user input by subtracted from current year
         if age <= 18: #Enforcing age limit
-            print("Sorry you cannot use this application age limit is 18years.")
+            print("Sorry you cannot use this application, age limit is 18years.")
         else:
             users.append([username, mobile_number, password, password_confirm, DOB, age])
         #print(users) #list of registered users 
