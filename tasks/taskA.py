@@ -24,20 +24,19 @@ if value == 1:
         username = input("Enter your name:  ")
         mobile_number = input("Enter your mobile number e.g. 01234567890: ")
         valid_mobile_number = re.compile(r"(?:\d)?\d{11}")
-        while valid_mobile_number.search(mobile_number) is None:
+        while valid_mobile_number.findall(mobile_number) is None:
             mobile_number = eval(input("Try again, Enter your mobile number in the correct format e.g 01111111111: "))
         password = input("Enter password in the format xyz@123: ")
         valid_password = re.compile(r"([A-Za-z0-9]+[.@#\$])*[0-9]") #Reference from Python3.10 Doc Chapter 6(6.2.5). Regular expression (Compile user input with re module()).
-        while valid_password.search(password) is None:
+        while valid_password.findall(password) is None:
             password = eval(input("Try again, Enter password in the correct format e.g. axy@234: "))
         password_confirm = input("Enter password confirmation: ")
-        #valid_password = re.compile(r"([A-Za-z0-9]+[.@#\$])*[0-9]")
         while valid_password.search(password_confirm) is None:
             if password_confirm != password:
                 password_confirm = eval(input("Password confirmation not matching password, try again: "))
         DOB = input("Enter date of birth e.g MM/DD/YYYY: ")
         valid_DOB = re.compile(r"^\d{1,2}/\d{1,2}/\d{4}$") #Reference from Python3.10 Doc Chapter 6(6.2.5). Regular expression (Compile user input with re module()).
-        while valid_DOB.search(DOB) is None:
+        while valid_DOB.findall(DOB) is None:
             DOB = eval(input("Try again, Enter your DOB in the correct format e.g. MM/DD/YYYY: "))
         year_BOD = datetime.datetime.strptime(DOB, "%m/%d/%Y") #converting string type date to datetime object. Reference from python3.10 Doc Chapter 8, Datetime string converted to datetime
         date_str = year_BOD.strftime('%m/%d/%y') # formating datetime object to string format.
@@ -103,7 +102,7 @@ if value == 1:
                         DOB = eval(input("Try again, Enter your Date Of Birth in correct format e.g. MM/DD/YYYY: "))
                     new_password = input("Enter new password in this format e.g xyz@123: ")
                     valid_password = re.compile(r"([A-Za-z0-9]+[.@#\$])*[0-9]") #Reference from Python3.10 Doc Chapter 6(6.2.5). Regular expression (Compile user input with re module()).
-                    while valid_password.search(new_password) is None:
+                    while valid_password.findall(new_password) is None:
                         new_password = eval(input("Try again, enter password in the correct format e.g. xyz@123: "))
                     user[2], user[3] = new_password, new_password # setting new password values to password and password confirmation in users list
                     success = True
