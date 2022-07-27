@@ -1,1 +1,1 @@
-# MIS501
+# Application signup, login and password reset
