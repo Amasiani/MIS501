@@ -66,20 +66,18 @@ if value == 1:
                         print('You have successfully logged in\nWelcome %s'%(user[0].capitalize()))
                         success = True
                         print(10*'*'+'End of Application Login script'+10*'*') #End of Application Login script.
-                        print("1. Enter 1 for Resetting your password\n2. Enter 2 to signout")
+                        print(" 1. Enter 1 for Resetting your password.\n 2. Enter 2 to signout.")
                         print(10*'*'+'Beginning of menu Password Reset'+10*'*') #Password Reset from menu 
-                        select_value = int(input("Select from the available option 1 or 2: "))
+                        select_value = int(input(" Select from the available option 1 or 2: "))
                         if select_value == 1:
                             print("Reset you Password from Menu.")
                             print(users_copy) #Registered users deep copy
-                            mobile_number = input("Please enter your username (Mobile number) e.g. 01234567890:  ")
+                            mobile_number = input(" Please enter your username (Mobile number) e.g. 01234567890:  ")
                             if mobile_number != user[1]:
-                                print("Entered mobile number does not exit!!!")
-                                mobile_number = eval(input("Enter your mobile number in correct format e.g 01234567890: "))
-                            old_password = input("Enter your password: ")
+                                mobile_number = eval(input("Entered mobile number not matching our records or not in the correct format e.g 01234567890: "))
+                            old_password = input("Enter your old password: ")
                             if old_password != user[2]:
-                                print(user[2])
-                                old_password = eval(input("Entered password not matching!!!"))
+                                old_password = eval(input("Entered old password not matching our records or not in the correct format e.g. xyz@123: "))
                             update_password = input("Please upate your password: ")
                             user[2], user[3] = update_password, update_password #setting new password to password and password confirmation valuses in users list
                             print("Your password has been updated successfully.", user[2])
