@@ -51,11 +51,7 @@ if value == 1:
         #print(users) #list of registered users 
         users_copy = users[:] # deep copy of users list to make it available to the login script
         print("Your have successfully signed up.")
-        print("""
-            1. Enter 1 to sign up
-            2. Enter 2 to log in
-            3. Enter 3 to log out
-            """)
+        print(" 1. Enter 1 to sign up.\n 2. Enter 2 to log in.\n 3. Enter 3 to log out")
     print(10*'*'+'Beginning of Login Script'+10*'*') #Beginning of Application Login script.
     options = int(input("To login select 2 or 3 to exit the application: ")) #setting options
     if options == 2:
@@ -95,11 +91,11 @@ if value == 1:
                             print("You logged out of the application.")
                             break
             if not success:
-                print("Incorrect credential try again")
+                print("Incorrect credentials, try again.")
                 count+=1
             if count == 3:
-                print("Reached attempt limit")
                 print(10*'*'+'Beginning of failed attempt password reset'+10*'*') #Failed attempt password Reset
+                print("You have reached attempt limit!!!\nReset your password.")
                 for user in users: #creating a sub_list (user list) from users list
                     mobile_number = input("Please enter your username (Mobile number):  ")
                     if mobile_number in user and mobile_number != user[1]: #comparing user input (mobile_number) with users list item (mobile_number)
@@ -113,10 +109,10 @@ if value == 1:
                         new_password = eval(input("Try again, enter password in the correct format e.g. xyz@123: "))
                     user[2], user[3] = new_password, new_password # setting new password values to password and password confirmation in users list
                     success = True
-                    print("Your password has been successfully reset", user[2])
+                    print("Your password has been reset successfully.", user[2])
                     break   
                 print(10*'*'+'End of failed attempt password reset'+10*'*')
-                print("1. Enter 1 to sign up.\n2. Enter 2 to log in.\n3. Enter 3 to log out.")  
+                print(" 1. Enter 1 to sign up.\n 2. Enter 2 to log in.\n 3. Enter 3 to log out.")  
     else:
         print("You have logged out of the application, thanks")
 elif value ==2:
