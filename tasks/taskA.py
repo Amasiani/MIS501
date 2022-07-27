@@ -13,6 +13,7 @@ count = 1
 mobile_number = ""
 password = ""
 password_confirm = ""
+new_password = ""
 DOB = ""
 success = False
 
@@ -86,38 +87,39 @@ if value == 1:
                             if old_password != user[2]:
                                 print(user[2])
                                 old_password = eval(input("Entered password not matching!!!"))
-                            new_password = input("Please upate your password: ")
-                            user[2], user[3] = new_password, new_password #setting new password to password and password confirm valuses in users list
+                            update_password = input("Please upate your password: ")
+                            user[2], user[3] = update_password, update_password #setting new password to password and password confirmation valuses in users list
                             print("Your password has been updated successfully.", user[2])
                             continue
                         else:
                             print("You logged out of the application.")
                             break
-        if not success:
-            print("Incorrect credential try again")
-            count+=1
-        if count == 3:
-            print("Reached attempt limit")
-            print(10*'*'+'Beginning of failed attempt password reset'+10*'*') #Failed attempt password Reset
-            for user in users: #creating a sub_list (user list) from users list
-                mobile_number = input("Please enter your username (Mobile number):  ")
-                if mobile_number != user[1]: #comparing user input (mobile_number) with users list item (mobile_number)
-                    mobile_number = eval(input("Mobile number entered does not exist e.g. 01234567890: "))
-                DOB = input("Enter date of birth e.g MM/DD/YYYY: ")
-                if DOB != user[4]: #comparing user input (DOB) with users list item (DOB).
-                    DOB = eval(input("Try again, Enter your Date Of Birth in correct format e.g. MM/DD/YYYY: "))
-                new_password = print("Enter new password in this format e.g xyz@123: ")
-                valid_password = re.compile(r"([A-Za-z0-9]+[.@#\$])*[0-9]") #Reference from Python3.10 Doc Chapter 6(6.2.5). Regular expression (Compile user input with re module()).
-                if valid_password.search(new_password) is None:
-                    new_password = eval(input("Try again, enter password in the correct format e.g. xyz@123: "))
-                user[2], user[3] = new_password, new_password # setting new password values to password and password confirm in users list
-                print("Your password has been successfully reset", user[2])     
+            if not success:
+                print("Incorrect credential try again")
+                count+=1
+            if count == 3:
+                print("Reached attempt limit")
+                print(10*'*'+'Beginning of failed attempt password reset'+10*'*') #Failed attempt password Reset
+                for user in users: #creating a sub_list (user list) from users list
+                    mobile_number = input("Please enter your username (Mobile number):  ")
+                    if mobile_number in user and mobile_number != user[1]: #comparing user input (mobile_number) with users list item (mobile_number)
+                        mobile_number = eval(input("Mobile number entered does not exist e.g. 01234567890: "))
+                    DOB = input("Enter date of birth e.g MM/DD/YYYY: ")
+                    if DOB in user and DOB != user[4]: #comparing user input (DOB) with users list item (DOB).
+                        DOB = eval(input("Try again, Enter your Date Of Birth in correct format e.g. MM/DD/YYYY: "))
+                    new_password = input("Enter new password in this format e.g xyz@123: ")
+                    valid_password = re.compile(r"([A-Za-z0-9]+[.@#\$])*[0-9]") #Reference from Python3.10 Doc Chapter 6(6.2.5). Regular expression (Compile user input with re module()).
+                    while valid_password.search(new_password) is None:
+                        new_password = eval(input("Try again, enter password in the correct format e.g. xyz@123: "))
+                    user[2], user[3] = new_password, new_password # setting new password values to password and password confirmation in users list
+                    success = True
+                    print("Your password has been successfully reset", user[2])
+                    break   
                 print(10*'*'+'End of failed attempt password reset'+10*'*')
                 print('''1. Enter 1 to sign up
-                        2. Enter 2 to log in
-                        3. Enter 3 to log out
+                    2. Enter 2 to log in
+                    3. Enter 3 to log out
                     ''')  
-            #print(10*'*'+'End of failed login attempt'+10*'*') #End of failed login attempt
     else:
         print("You have logged out of the application, thanks")
 elif value ==2:
