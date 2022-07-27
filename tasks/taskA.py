@@ -40,9 +40,9 @@ if value == 1:
         valid_DOB = re.compile(r"^\d{1,2}/\d{1,2}/\d{4}$") #Reference from Python3.10 Doc Chapter 6(6.2.5). Regular expression (Compile user input with re module()).
         while valid_DOB.search(DOB) is None:
             DOB = eval(input("Try again, Enter your DOB in the correct format e.g. MM/DD/YYYY: "))
-        year_BOD = datetime.datetime.strptime(DOB, "%m/%d/%Y") #Reference from python3.10 Doc Chapter 8, Datetime string converted to datetime
-        date_str = year_BOD.strftime('%m/%d/%y') #datetime format <type string>
-        age = datetime.datetime.today().year - year_BOD.year #Extacting year from datetime object and calculating the age from user input suntracted from current year
+        year_BOD = datetime.datetime.strptime(DOB, "%m/%d/%Y") #converting string type date to datetime object. Reference from python3.10 Doc Chapter 8, Datetime string converted to datetime
+        date_str = year_BOD.strftime('%m/%d/%y') # formating datetime object to string format.
+        age = datetime.datetime.today().year - year_BOD.year #Extacting year from datetime object and calculating the age from user input by subtracted from current year
         if age <= 18: #Enforcing age limit
             print("Sorry you cannot use this application age limit is 18years.")
         else:
@@ -65,9 +65,9 @@ if value == 1:
             password = input("Enter your password e.g xyz@123: ")
             #login.append([mobile_number, password]) #login user details
             print(users_copy)
-            for user in users: #Looping through users(list)
-                if mobile_number and password in user:
-                    if mobile_number == user[1] and password == user[2]: #comparing items in the list with user input
+            for user in users: #Looping through users(list) and creating a sub_list (user list) from users list
+                if mobile_number and password in user: #checking mobile_number and password in user list
+                    if mobile_number == user[1] and password == user[2]: #comparing items in user list with user input
                         #print(user) #logged in user
                         print('You have successfully logged in\nWelcome %s'%(user[0].capitalize()))
                         success = True
@@ -87,7 +87,7 @@ if value == 1:
                                 print(user[2])
                                 old_password = eval(input("Entered password not matching!!!"))
                             new_password = input("Please upate your password: ")
-                            user[2] = new_password
+                            user[2] = new_password #setting new password to old password in the users list
                             print("Your password has been updated successfully.", user[2])
                             continue
                         else:
@@ -99,7 +99,7 @@ if value == 1:
         if count == 3:
             print("Reached attempt limit")
             print(10*'*'+'Beginning of failed attempt password reset'+10*'*') #Failed attempt password Reset
-            for user in user:
+            for user in users:
                 mobile_number = input("Please enter your username (Mobile number):  ")
                 valid_mobile_number = re.compile(r"(?:\d)?\d{11}")
                 if valid_mobile_number.search(mobile_number) is None:
