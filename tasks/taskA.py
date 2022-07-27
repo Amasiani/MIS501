@@ -9,7 +9,7 @@ value = int(input("Choice from available option: "))
 
 users = []
 login = []
-count = 1
+count = 0
 mobile_number = ""
 password = ""
 password_confirm = ""
@@ -116,10 +116,7 @@ if value == 1:
                     print("Your password has been successfully reset", user[2])
                     break   
                 print(10*'*'+'End of failed attempt password reset'+10*'*')
-                print('''1. Enter 1 to sign up
-                    2. Enter 2 to log in
-                    3. Enter 3 to log out
-                    ''')  
+                print("1. Enter 1 to sign up.\n2. Enter 2 to log in.\n3. Enter 3 to log out.")  
     else:
         print("You have logged out of the application, thanks")
 elif value ==2:
