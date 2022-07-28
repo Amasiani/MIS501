@@ -1,5 +1,3 @@
-#from MIS501 import DOB
-#from MIS501 import users
 import re
 import datetime
 
