@@ -1,4 +1,3 @@
-from optparse import OptionError
 import re
 import datetime
 
@@ -39,8 +38,8 @@ if value == 1:
         password_confirm = input("Enter password confirmation: ")
         #valid_password = re.compile(r"([A-Za-z0-9]+[.@#\$])*[0-9]")
         while (valid_password.search(password_confirm) is None):
-        	if password_confirm != password:
-        		password_confirm = eval(input("Password confirmation not matching password, try again: "))
+            if password_confirm != password:
+                password_confirm = eval(input("Password confirmation not matching password, try again: "))
         DOB = input("Enter date of birth e.g MM/DD/YYYY: ")
         valid_DOB = re.compile(r"^\d{1,2}/\d{1,2}/\d{4}$") #Reference from Python3.10 Doc Chapter 6(6.2.5). Regular expression (Compile user input with re module()).
         while (valid_DOB.search(DOB) is None):
@@ -101,35 +100,35 @@ if value == 1:
                         else:
                             print("You logged out of the application.")
                             break
-        if success:
-            print("Incorrect credential try again")
-            count+=1
-        if count == 3:
-            print("Reached attempt limit")
-            print(10*'*'+'Beginning of failed attempt password reset'+10*'*') #Failed attempt password Reset
-            for user in user:
-                mobile_number = input("Please enter your username (Mobile number):  ")
-                valid_mobile_number = re.compile(r"(?:\d)?\d{11}")
-                if valid_mobile_number.search(mobile_number) is None:
-                    mobile_number = eval(input("Mobile number entered does not exist e.g. 01234567890: "))
-                DOB = input("Enter date of birth e.g MM/DD/YYYY: ")
-                valid_DOB = re.compile(r"^\d{1,2}/\d{1,2}/\d{4}$") #Reference from Python3.10 Doc Chapter 6(6.2.5). Regular expression (Compile user input with re module())
-                if valid_DOB.search(DOB) is None:
-                    DOB = eval(input("Try again, Enter your Date Of Birth in correct format e.g. MM/DD/YYYY: "))
-                if mobile_number and DOB in user:
-                    if mobile_number == user[1] and DOB == user[4]:
-                        new_password = input("Please upate your password: ")
-                        user[2] = new_password
-                        print("Your password has been reset successfully.", user)
-                    else:
-                        print("No match found")
-                        break      
-                    print(10*'*'+'End of failed attempt password reset'+10*'*')
-                    print('''1. Enter 1 to sign up
-    			        2. Enter 2 to log in
-                        3. Enter 3 to log out
-                        ''')  
-    		#print(10*'*'+'End of failed login attempt'+10*'*') #End of failed login attempt
+            if success:
+                print("Incorrect credential try again")
+                count+=1
+            if count == 3:
+                print("Reached attempt limit")
+                print(10*'*'+'Beginning of failed attempt password reset'+10*'*') #Failed attempt password Reset
+                for user in user:
+                    mobile_number = input("Please enter your username (Mobile number):  ")
+                    valid_mobile_number = re.compile(r"(?:\d)?\d{11}")
+                    if valid_mobile_number.search(mobile_number) is None:
+                        mobile_number = eval(input("Mobile number entered does not exist e.g. 01234567890: "))
+                    DOB = input("Enter date of birth e.g MM/DD/YYYY: ")
+                    valid_DOB = re.compile(r"^\d{1,2}/\d{1,2}/\d{4}$") #Reference from Python3.10 Doc Chapter 6(6.2.5). Regular expression (Compile user input with re module())
+                    if valid_DOB.search(DOB) is None:
+                        DOB = eval(input("Try again, Enter your Date Of Birth in correct format e.g. MM/DD/YYYY: "))
+                    if mobile_number and DOB in user:
+                        if mobile_number == user[1] and DOB == user[4]:
+                            new_password = input("Please upate your password: ")
+                            user[2] = new_password
+                            print("Your password has been reset successfully.", user)
+                        else:
+                            print("No match found")
+                            break      
+                        print(10*'*'+'End of failed attempt password reset'+10*'*')
+                        print('''1. Enter 1 to sign up
+    			            2. Enter 2 to log in
+                            3. Enter 3 to log out
+                            ''')  
+    		    #print(10*'*'+'End of failed login attempt'+10*'*') #End of failed login attempt
     else:
     	print("You have logged out of the application, thanks")
 elif value ==2:
