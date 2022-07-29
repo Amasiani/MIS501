@@ -42,10 +42,6 @@ else:
     print('not found')
 
 
-
-
-
-
 hello_data = []
 login_info =[]
 mobile_number = None
@@ -82,13 +78,13 @@ while count <= 3 and not success:
             success = True
             break
 
-if not success:
-    print("incorrect details.")
-    count+=1
+    if not success:
+        print("incorrect details.")
+        count+=1
 
-if count == 3:
-    print("Excceded attempts try again.")
-print(10*'*'+'End account login'+10*'*')
+    if count == 3:
+        print("Excceded attempts try again.")
+        print(10*'*'+'End account login'+10*'*')
 
 
 
@@ -243,7 +239,7 @@ else:
 
 
 
-def switch(name):
+def switch(name): #recursive function
     if name != 'emeka':
         value = input("Enter 'Emeka' to continue: ").lower()
         switch(value)   #recursive function
