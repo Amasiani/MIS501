@@ -9,17 +9,13 @@ value = int(input("Choice from available option: "))
 
 users = []
 login = []
-temp_list = []
-login_users = []
-login_data = []
-reset_data = []
-count = 1
+count = 0
 mobile_number = ""
 password = ""
 password_confirm = ""
+new_password = ""
 DOB = ""
 success = False
-
 
 
 if value == 1:

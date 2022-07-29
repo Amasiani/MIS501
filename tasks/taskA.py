@@ -16,7 +16,6 @@ DOB = ""
 success = False
 
 
-
 if value == 1:
     num_users  = int(input("Enter number of users: ")) #Multiple users option
     print("Please sign up")

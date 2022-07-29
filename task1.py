@@ -132,10 +132,6 @@ else:
     print("oooon")
 
 
-
-
-
-
 while True:
     data = int(input("Enter your mobile number: "))
     val = f'{data:011}'
@@ -234,9 +230,7 @@ elif data == 2:
 elif data == 3:
     print("Logged out")
 else: 
-    print("Waiting for your input")
-    
-
+    print("Waiting for your input")  
 
 
 def switch(name): #recursive function
